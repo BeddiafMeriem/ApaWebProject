@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>ressource phytogénitiques</title>
+    <link rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+
+</head>
+<body>
+<h1> HELLO </h1>
+<p th:text="'user ' + ${username}"></p>
+<footer th:text="'created ' +${#dates.format(datetime,'dd MMM yyyy')}"></footer>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> 
+  <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Parties Utilisées</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='icon' href="favicon.ico">
+
+        <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/bootstrap.css}" />
+        <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+        <link rel="stylesheet" href="../static/css/font-awesome.css" th:href="@{/css/font-awesome.css}"/>
+        <link rel="stylesheet" href="../static/css/theme/white.css" th:href="@{/css/theme/white.css}"/>
+        <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}"/>
+    </head>
+    <body>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="mr-auto"></div>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Accueil</a>
+              </li>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Ressources
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/lot04_01forest.html">Forestières</a>
+                  <a class="dropdown-item" href="/lot04_03agriculture.html">Alimentation et Agriculture</a>       
+                  <a class="dropdown-item" href="/lot04_02marine.html">Marines</a>
+                  <a class="dropdown-item" href="/lot04_04wildlife.html">Faune Sauvage et Domestique</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Lois et Réglements</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Annuaire</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">|</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Se connecter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">S'inscrire</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section class="section resources-details_header forest_header" style="background-image: url('./img/partused.jpg'); background-position: center;">
+        <div class="header-overlay"></div>
+        <div class="content_header center">
+          <h2 th:text="'Parties utilisées de la ressource : ' + ${ressourceDetail.nom_scientifique }"></h2>
+        </div>
+      </section>
+
+      <section class="forest_details_content">
+          <div class="container">
+          
+          
+           <table align="center" th:if="${partiesUtilisees != null}">
+      
+            <tbody align="center">
+            
+               <tr th:if="${partiesUtilisees.empty}">
+                  <td> Aucune partie utilisée disponible </td>   
+               </tr>
+               
+            <tr align="center" th:each="usedpart: ${partiesUtilisees}">
+        
+             <td>
+             
+             
+             <div class="card">
+                <div class="card-body">
+                    <div class="info-block margin" style="margin-bottom: 100px">
+                        <div>
+                            <h5>Nom :</h5>
+                            <p th:text="${usedpart.getNom() }">
+                                
+                            </p>
+                        </div>
+                        <div>
+                            <h5>Description :</h5>
+                            <p th:text="${usedpart.getDescription() }">
+                                
+                            </p>
+                        </div>
+                        <div>
+                            <h5>Composition chimique :</h5>
+                            <p th:text="${usedpart.getCompositionChimique() }">
+                             
+                            </p>
+                        </div>
+                        <img <img src="../static/img/adn.png" th:src="@{/img/adn.png}" width="600" height="400"/>
+                    </div>
+                </div>
+            </div>
+             
+       
+              </td>
+              </tr>
+              </tbody>
+              </table>
+          
+          
+            
+          </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <a class="footer-brand" href="#">
+                <img src="../static/img/logo.png" th:src="@{/img/logo.png}" alt="">
+              </a>
+            </div>
+            <div class="col-12 col-md-3">
+              <h6>Titres</h6>
+              <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Ressources</a></li>
+                <li><a href="#">Lois et Réglements</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-3">
+              <h6>Ressources</h6>
+              <ul>
+                <li><a href="#" th:href="@{/ressource/forestiere}">Forestières</a></li>
+                <li><a href="#" th:href="@{/ressource/alim-agri}">Alimentation et Agriculture</a></li>
+                <li><a href="#" th:href="@{/ressource/marine}">Marines</a></li>
+                <li><a href="#" th:href="@{/ressource/faune}">Faune Sauvage et Domestique</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-3">
+              <h6>Suivez-nous</h6>
+              <button class="btn button"><i class="fa fa-linkedin"></i></button>
+              <button class="btn button"><i class="fa fa-twitter"></i></button>
+              <button class="btn button"><i class="fa fa-facebook"></i></button>
+              <button class="btn button"><i class="fa fa-instagram"></i></button>            
+            </div>
+
+
+          </div>
+          <span class="center">Tout les droits sont réservés &reg;</span>
+        </div>
+      </footer>
+      
+
+      <!-- Scripts -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
